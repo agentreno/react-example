@@ -21,11 +21,15 @@ class App extends React.Component {
                 <h1>{this.props.topMessage}</h1>
                 <h2>{this.props.bottomMessage}</h2>
                 <h3>{this.state.stateMessage} - {this.state.unchangedMessage}</h3>
-                <input type="text" onChange={this.update.bind(this)} />
+                <Widget update={this.update.bind(this)} />
             </div>
         )
     }
 }
+
+const Widget = (props) =>
+    <input type="text" onChange={props.update} />
+
 
 App.propTypes = {
     topMessage: React.PropTypes.string.isRequired,
